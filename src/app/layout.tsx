@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import SessionWrapper from "../context/SessionWrapper";
-
+import { DialogProvider } from "../components/Dialog";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,14 +15,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <SessionWrapper>
-      <html lang="en">
-        <body className={inter.className}>
-          <main className="bg-gray-950 h-screen">
+
+    <html lang="en">
+      <body className={inter.className}>
+        <main className="bg-gray-950 h-screen">
+          <DialogProvider>
             {children}
-          </main>
-        </body>
-      </html>
-    </SessionWrapper>
+          </DialogProvider>
+        </main>
+      </body>
+    </html>
+
   );
 }

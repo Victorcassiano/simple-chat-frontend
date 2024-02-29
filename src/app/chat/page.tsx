@@ -1,13 +1,13 @@
 'use client'
-import { useRouter } from "next/navigation";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getSession } from "next-auth/react"
 import { signOut } from 'next-auth/react'
-import { Button } from "../../components/ui/button";
-import { Input } from "../../components/ui/input";
+import { Button } from '../../components/ui/button'
 import { Power, SendHorizontal } from "lucide-react";
 import { DefaultEventsMap } from '@socket.io/component-emitter';
 import io, { Socket } from 'socket.io-client';
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Input } from "@/src/components/ui/input";
+import { useDialog } from "@/src/components/Dialog";
 
 
 interface IMessage {
@@ -20,8 +20,8 @@ interface IMessage {
 interface IUser { name: string, image: string, email: string }
 
 export default function Chat() {
-    const route = useRouter()
     const chatRef = useRef(null)
+    const { openDialog } = useDialog()
     const [user, setUser] = useState({ name: '', image: '', email: '' });
 
 
@@ -39,11 +39,9 @@ export default function Chat() {
 
     const getSessionn = async () => {
         const { user } = await getSession()
-        console.log(user)
+
         setUser(user)
     }
-
-
 
 
     useEffect(() => {
@@ -87,7 +85,13 @@ export default function Chat() {
 
     const handleMessage = () => {
         if (!message) {
-            alert('Não pode enviar mensagem vazia!')
+            openDialog({
+                title: 'Atencão!',
+                content: 'O input de mensagem está vazio!',
+                isOpen: true,
+                hasCloseButton: true,
+                textCloseButton: 'Fechar',
+            })
             return
         }
 
@@ -106,6 +110,7 @@ export default function Chat() {
     );
 
     return (
+
         <div className="h-full flex flex-col">
             <div className="relative w-2/4  tablet:w-[95%] mobile:w-full rounded-md mx-auto flex flex-row justify-between items-center py-2 gap-4 px-2 my-5">
 
@@ -114,13 +119,31 @@ export default function Chat() {
                     <span className="text-purple-700">Dev</span>
                 </p>
                 <Button className="gap-3 mobile:hidden tablet:hidden"
-                    onClick={signout}
+                    onClick={() =>
+                        openDialog({
+                            title: 'Atencão!',
+                            content: 'Deseja realmente sair?',
+                            isOpen: true,
+                            hasCloseButton: false,
+                            positiveButton: true,
+                            textPositiveButton: 'Sim',
+                            onClickPositive: () => signout()
+                        })}
                 >
                     Sair
                     <Power />
                 </Button>
                 <Button className="desktop:hidden mobile:flex tablet:flex mobile:relative mobile:right-0 mobile:top-0 tablet:relative tablet:right-0 tablet:top-0"
-                    onClick={signout}
+                    onClick={() =>
+                        openDialog({
+                            title: 'Atencão!',
+                            content: 'Deseja realmente sair?',
+                            isOpen: true,
+                            hasCloseButton: false,
+                            positiveButton: true,
+                            textPositiveButton: 'Sim',
+                            onClickPositive: () => signout()
+                        })}
                 >
                     <Power />
                 </Button>
@@ -160,5 +183,6 @@ export default function Chat() {
                 </Button>
             </div>
         </div>
+
     );
 }
