@@ -1,7 +1,14 @@
 # ChatDev
 Bem-vindo ao ChatDev - Uma plataforma de bate-papo para desenvolvedores!
 
-O ChatDev é uma aplicação web que permite que desenvolvedores se comuniquem, compartilhem conhecimento e colaborem em projetos em tempo real. Esta plataforma oferece uma maneira fácil e eficaz para os membros da comunidade de desenvolvimento se conectarem, trocarem ideias, fazerem perguntas e colaborarem em projetos.
+O ChatDev é uma aplicação web que permite que desenvolvedores se comuniquem, compartilhem conhecimento e colaborem em projetos em tempo real.
+
+**OAuth**
+
+![Screen Login OAuth](https://i.imgur.com/Xx1Eup9.png)
+
+**ChatDev**
+![Screen ChatDev](https://i.imgur.com/Tp18VfD.png)
 
 ## Funcionalidades Principais
 
