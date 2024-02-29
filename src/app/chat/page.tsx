@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { getSession } from "next-auth/react"
 import { signOut } from 'next-auth/react'
 import { Button } from '../../components/ui/button'
-import { Power, SendHorizontal } from "lucide-react";
+import { Power, SendHorizontal, TerminalSquare } from "lucide-react";
 import { DefaultEventsMap } from '@socket.io/component-emitter';
 import io, { Socket } from 'socket.io-client';
 import { Input } from "@/src/components/ui/input";
@@ -65,6 +65,7 @@ export default function Chat() {
 
     useEffect(() => {
         if (socket) {
+            console.log(messages)
             socket.on('message', (res) => {
                 setMessages(res);
             });
@@ -154,15 +155,21 @@ export default function Chat() {
             >
                 {messages.map((item) =>
                 (
-                    <div key={Math.random()}
-                        className="min-h-24 h-24 w-full py-5 flex flex-row items-center justify-start border-b-[1px] border-slate-800"
-                    >
-                        <img src={item.image} alt="profile" className="w-10 h-10 rounded-full mr-3 " />
-                        <div>
-                            <span className="text-white font-bold mb-3 text-lg">{item.nickname}</span>
-                            <p className="text-white">{item.message}</p>
+                    <>
+                        <div key={Math.random()}
+                            className="relative min-h-24 h-24 w-full py-5 flex flex-row items-center justify-start border-b-[1px] border-slate-800"
+                        >
+                            <img src={item.image} alt="profile" className="w-10 h-10 rounded-full mr-3 " />
+                            <div>
+                                <span className="text-white font-bold mb-3 text-lg">{item.nickname}</span>
+                                <p className="text-white">{item.message}</p>
+                            </div>
+                            {item.image === user.image && (
+
+                                <TerminalSquare className="absolute right-5" color="#7E22CE" />
+                            )}
                         </div>
-                    </div>
+                    </>
                 ))}
 
 
