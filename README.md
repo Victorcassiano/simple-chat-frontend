@@ -29,6 +29,13 @@ Para executar localmente o ChatDev, siga estas etapas:
 
 	   `http://localhost:3000/`
 
+## Variáveis de ambiente
+    GOOGLE_CLIENT_ID=
+    GOOGLE_CLIENT_SECRET=
+    GITHUB_CLIENT_ID=
+    GITHUB_CLIENT_SECRET=
+    NEXTAUTH_SECRET=
+
 ## Tecnologias Utilizadas
 
 -   **Frontend:** React.js, Nextjs, TypeScript, Framer Motion (para animações)
