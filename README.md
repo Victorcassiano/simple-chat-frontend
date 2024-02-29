@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ChatDev
+Bem-vindo ao ChatDev - Uma plataforma de bate-papo para desenvolvedores!
 
-## Getting Started
+O ChatDev é uma aplicação web que permite que desenvolvedores se comuniquem, compartilhem conhecimento e colaborem em projetos em tempo real. Esta plataforma oferece uma maneira fácil e eficaz para os membros da comunidade de desenvolvimento se conectarem, trocarem ideias, fazerem perguntas e colaborarem em projetos.
 
-First, run the development server:
+## Funcionalidades Principais
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  
+-   **Mensagens em Tempo Real:** As mensagens são entregues instantaneamente, permitindo conversas em tempo real entre os usuários.
+   - **Login com OAUth:** O Login com OAuth é uma opção conveniente e segura para autenticar os usuários em sua aplicação ChatDev.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalação
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Para executar localmente o ChatDev, siga estas etapas:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1.  Clone o repositório:
+   
+    `git clone https://github.com/seu-usuario/chatdev.git` 
+    
+2.  Instale as dependências:  
 
-## Learn More
+    `yarn install` 
+    
+3.  Inicie o servidor de desenvolvimento:
 
-To learn more about Next.js, take a look at the following resources:
+      `yarn dev` 
+    
+4.  Acesse a aplicação em seu navegador:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+	   `http://localhost:3000/`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Tecnologias Utilizadas
 
-## Deploy on Vercel
+-   **Frontend:** React.js, Nextjs, TypeScript, Framer Motion (para animações)
+-   **[Backend](https://github.com/pedromesmer/simple-chat-server):** Node.js, Express.js, Socket.IO (para comunicação em tempo real)
+-   **Autenticação:** Next Auth 5v
+-   **Estilo:** Tailwindcss e ShadcnUI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Autores
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+-   [Victor Cassiano](https://victorcassiano.netlify.app/)
+-   [Pedro Mesmer](https://github.com/pedromesmer)
+
+## Licença
+
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
